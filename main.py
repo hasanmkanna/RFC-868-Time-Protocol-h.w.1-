@@ -1,4 +1,5 @@
 from RFC_868_time import Client
+import threading
 
  
 #server chosen:
@@ -14,8 +15,10 @@ print("[SERVER2 ID]: "+server2)
 
 #Time of each server in a human readable format.
 print("\nTime of each server in a human readable format:")
-response1 = Client(server1,port)
-response2 = Client(server2,port)
+threading.Thread(target=Client(server1,port))
+threading.Thread(target=Client(server2,port))
+#response1 = Client(server1,port)
+#response2 = Client(server2,port)
 
 
 #Time difference between the two times retrieved
